@@ -8,16 +8,11 @@
 from django.db import models
 
 
-class Business(models.Model):
-    id = models.CharField(primary_key=True, max_length=255)
-    name = models.CharField(max_length=255, blank=True, null=True)
-    created_at = models.DateTimeField(blank=True, null=True)
-    updated_at = models.DateTimeField(blank=True, null=True)
-    del_field = models.IntegerField(db_column='del', blank=True,
-                                    null=True)  # Field renamed because it was a Python reserved word.
+class DjangoMigrations(models.Model):
+    app = models.CharField(max_length=255)
+    name = models.CharField(max_length=255)
+    applied = models.DateTimeField()
 
     class Meta:
         managed = False
-        db_table = 'business'
-
-
+        db_table = 'django_migrations'

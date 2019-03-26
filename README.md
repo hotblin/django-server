@@ -35,12 +35,6 @@ python manage.py makemigrations [appname]
 # 从记录文件写入到数据库
 python manage.py migrate [appname] [记录文件id] 
 ```
-#在api应用下新生成``目录以及初始化文件
-
-models写入到记录文件： `` 
-从记录文件写入到数据库： ``
-
-
 
 ## Token 认证
 
@@ -48,3 +42,14 @@ models写入到记录文件： ``
 # https://www.cnblogs.com/ShenLw/p/8608136.htmlhttps://www.jianshu.com/p/e0a206212df4
 
 ```
+
+## 逆向生成数据表,根据数据库生成models
+
+```bash
+python manage.py inspectdb > [appname]/models.py
+```
+
+忽略已提交到版本的文件
+1.git rm -r --cached file_name/dir
+2.添加到.gitignore中
+3.提交、推送
