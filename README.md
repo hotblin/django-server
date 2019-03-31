@@ -53,3 +53,66 @@ python manage.py inspectdb > [appname]/models.py
 1.git rm -r --cached file_name/dir
 2.添加到.gitignore中
 3.提交、推送
+
+## 共享虚拟环境
+
+```bash
+# linux
+python3 -m vemv /home/snowman/.local/share/virtualenvs/django2.0
+
+# windows
+python -m vemv c://
+```
+
+## django 命令行使用
+
+```bash
+django-admin startproject [projectname]
+python3 manage.py startapp [appname]
+
+```
+
+##　项目结构
+
+app 拆分
+
+## debug模式
+
+## 请求参数获取
+
+- 请求参数转换器
+
+## url 模块化
+
+```python
+from django.urls import path,include
+urlpatterns = [
+    path('',include())
+]
+
+```
+- url 命名
+- url 反转
+- url 应用app命名空间 ,在urls中定义 app_name 定义命名空间,反转url的时候
+- url 实例命名空间 namespace, include('api.urls',namespace="api1")
+- 指定实例命名空间必须提前指定应用命名空间
+- include 函数方法 在include方法中指定应用命名空间和实例命名空间
+- 重定向,带有参数的重定向
+- 制定url参数默认参数
+
+```python
+from django.urls import include,reverse
+include('api.urls','api')
+path = reverse('应用命名空间:视图函数名称')
+```
+
+- re_path
+
+```python
+from django.urls import re_path
+# re_path,在urls中写正则
+```
+
+## 自定义 path 转换器
+
+- 针对url参数做修改

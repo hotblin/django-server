@@ -27,7 +27,6 @@ DEBUG = True
 # Application definition
 
 INSTALLED_APPS = [
-    'api.apps.ApiConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -35,6 +34,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'corsheaders',
+
+    'api.apps.ApiConfig',
 ]
 
 MIDDLEWARE = [
@@ -52,6 +53,7 @@ MIDDLEWARE = [
 
 ]
 
+# 指定url映射配置文件地址
 ROOT_URLCONF = 'django_server.urls'
 
 TEMPLATES = [
@@ -157,4 +159,5 @@ CORS_ALLOW_HEADERS = (
     'x-requested-with',
 )
 # 部署到云服务上必备
+# 允许访问本服务的主机地址,ip地址
 ALLOWED_HOSTS = ['*']
