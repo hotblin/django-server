@@ -29,11 +29,30 @@ from django.views.decorators.http import require_GET,require_POST,require_safe
 # 可选，生成空记录文件在 `migrations` 目录下
 python manage.py makemigrations --empty [appname] 
 
-# 数据库迁移
+# 数据库迁移,生成迁移脚本文件
 python manage.py makemigrations [appname]
 
 # 从记录文件写入到数据库
-python manage.py migrate [appname] [记录文件id] 
+python manage.py migrate [appname] [记录文件id] --fake 
+-- fake 是否忽略 
+
+# 生成 sql语句
+python manage.py sqlmigrate CODE 0001
+
+# 进入数据库命令行
+py manage.py dbshell
+
+```
+
+## 逆向生成数据表,根据数据库生成models
+
+```bash
+python manage.py inspectdb > [appname]/models.py
+
+# 反向生成数据模型中的
+class Meta:
+        managed = False # 是不生成数据表的意思，所以要删掉
+        db_table = 'sys'
 ```
 
 ## Token 认证
@@ -43,11 +62,6 @@ python manage.py migrate [appname] [记录文件id]
 
 ```
 
-## 逆向生成数据表,根据数据库生成models
-
-```bash
-python manage.py inspectdb > [appname]/models.py
-```
 
 忽略已提交到版本的文件
 1.git rm -r --cached file_name/dir
@@ -116,3 +130,21 @@ from django.urls import re_path
 ## 自定义 path 转换器
 
 - 针对url参数做修改
+
+
+## 操作数据库
+
+## 多个数据库连接
+
+## orm 
+
+对象映射数据
+
+## orm增删改查
+
+## 设置时区
+
+```python
+USE_TZ = True # 设置为 utc 当前时间
+```
+
