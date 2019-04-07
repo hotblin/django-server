@@ -8,57 +8,12 @@
 from django.db import models
 
 
-class Business(models.Model):
-    id = models.CharField(primary_key=True, max_length=255)
-    name = models.CharField(max_length=255, blank=True, null=True)
-    created_at = models.DateTimeField(blank=True, null=True)
-    updated_at = models.DateTimeField(blank=True, null=True)
-    del_field = models.IntegerField(db_column='del', blank=True,
-                                    null=True)  # Field renamed because it was a Python reserved word.
-
-    def __str__(self):
-        return "自定义取值是的返回值的格式"
-
-    class Meta:
-        managed = False
-        db_table = 'business'
 
 
-class ChannelSettings(models.Model):
-    id = models.CharField(primary_key=True, max_length=255)
-    device_id = models.CharField(max_length=255, blank=True, null=True)
-    channel_index = models.IntegerField(blank=True, null=True)
-    channel_type = models.IntegerField(blank=True, null=True)
-    channel_alias = models.CharField(max_length=255, blank=True, null=True)
-    created_at = models.DateTimeField(blank=True, null=True)
-
-    class Meta:
-        managed = False
-        db_table = 'channel_settings'
 
 
-class City(models.Model):
-    id = models.CharField(primary_key=True, max_length=255)
-    name = models.CharField(max_length=255, blank=True, null=True)
-    province_id = models.CharField(max_length=255, blank=True, null=True)
-    created_at = models.DateTimeField(blank=True, null=True)
-    updated_at = models.DateTimeField(blank=True, null=True)
-    del_field = models.IntegerField(db_column='del', blank=True,
-                                    null=True)  # Field renamed because it was a Python reserved word.
-    sys_code = models.CharField(max_length=255, blank=True, null=True)
-
-    class Meta:
-        managed = False
-        db_table = 'city'
 
 
-class CollectorManagerSettings(models.Model):
-    ping = models.DateTimeField(blank=True, null=True)
-    online = models.IntegerField(blank=True, null=True)
-
-    class Meta:
-        managed = False
-        db_table = 'collector_manager_settings'
 
 
 class CollectorParams(models.Model):

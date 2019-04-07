@@ -1,6 +1,6 @@
 from django.urls import path
 
-from .views import citys, login
+from .views import citys, login,email
 
 # url_tuple = [('login', login.login)]
 # result = [path(x, y) for x, y in url_tuple]
@@ -13,5 +13,6 @@ urlpatterns = [
     path('user/me', login.get_user, name='user_me'),
     path('city', citys.CityView.as_view(), name="City"),
     path('city/calc', citys.CalcCity.as_view(), name="CalcCity"),
-    path('user/<user_id>', login.get_url_params)
+    path('user/<user_id>', login.get_url_params),
+    path('email/add',email.post_email)
 ]
